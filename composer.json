@@ -1,0 +1,33 @@
+{
+	"name" : "aidphp/http-middleware",
+	"type" : "library",
+	"description" : "HTTP Middlewares",
+	"license" : "MIT",
+	"keywords" : [
+		"http",
+		"middlewares"
+	],
+	"authors" : [{
+			"name" : "Maxime Bourmaut"
+		}
+	],
+	"require" : {
+		"php" : "^7.1.0",
+		"psr/http-message" : "^1.0",
+		"psr/http-server-handler" : "^1.0",
+		"psr/http-server-middleware" : "^1.0"
+	},
+	"require-dev" : {
+		"phpunit/phpunit" : "^7.0"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Aidphp\\Http\\Middleware\\" : "src/"
+		}
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"Test\\Aidphp\\Http\\Middleware\\" : "test/"
+		}
+	}
+}
