@@ -17,11 +17,6 @@ class SenderMiddleware implements MiddlewareInterface
 
         if (! headers_sent())
         {
-            $code   = $res->getStatusCode();
-            $phrase = $res->getReasonPhrase();
-
-            header('HTTP/' . $res->getProtocolVersion() . ' ' . $code . ($phrase ? ' ' . $phrase : ''), true, $code);
-
             foreach ($res->getHeaders() as $name => $values)
             {
                 foreach ($values as $value)
@@ -29,9 +24,14 @@ class SenderMiddleware implements MiddlewareInterface
                     header($name . ': ' . $value, false);
                 }
             }
+
+            $code = $res->getStatusCode();
+            $text = $res->getReasonPhrase();
+
+            header('HTTP/' . $res->getProtocolVersion() . ' ' . $code . ($text ? ' ' . $text : ''), true, $code);
         }
 
-        echo (string) $res->getBody();
+        echo $res->getBody()->__toString();
 
         return $res;
     }
