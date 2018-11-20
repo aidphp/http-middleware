@@ -20,8 +20,7 @@ class ContentMiddleware implements MiddlewareInterface
 
     public function process(ServerRequestInterface $req, RequestHandlerInterface $handler): ResponseInterface
     {
-        $res = $handler->handle($req);
-
+        $res  = $handler->handle($req);
         $code = $res->getStatusCode();
 
         if ($code >= 100 && $code < 200 || in_array($code, [204, 205, 304], true))
