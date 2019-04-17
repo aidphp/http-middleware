@@ -9,3 +9,5 @@ This repository contains the following middlewares:
 
 - _ContentMiddleware_ inject the Content-Type and Content-Length header into a PSR-7 `ResponseInterface` headers.
 - _SenderMiddleware_ to send a PSR-7 `ResponseInterface` headers and body.
+- _FormContentMiddleware_ to decode the URL-encoded content of a PSR-7 `RequestInterface`.
+- _JsonContentMiddleware_ to decode the JSON content of a PSR-7 `RequestInterface`.
